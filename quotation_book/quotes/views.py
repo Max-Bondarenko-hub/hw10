@@ -13,6 +13,7 @@ def main(request, page=1):
     return render(request, "quotes/index.html", context={"quotes": quotes_on_page})
 
 
+@login_required
 def tag(request):
     if request.method == "POST":
         form = TagForm(request.POST)
