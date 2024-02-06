@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/style.css' %}">
+    <title>WEB_homework_10_django</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row header-box pt-3 mb-3">
+            <div class="col-md-8">
+                <h1>
+                    <a href="/" style="text-decoration: none">Quotes to Scrape</a>
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    {% if user.is_authenticated %}
+                        <span class="badge d-50 align-items-center p-1 pe-2 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-pill">
+                            <img class="rounded-circle me-1" width="24" height="24" src="https://gravatar.com/avatar/acefa5047784c79712443da352977f10?s=400&d=retro&r=x" alt="">Welcome <b>{{ user.username }}!</b>
+                        </span>
+                        <a href="/users/logout" class="btn btn-primary">Logout</a>
+                        <p>
+                            <a href="/author" class="btn btn-primary">Add author</a>
+                            <a href="/quote" class="btn btn-primary">Add quote</a>
+                        </p>
+                    {% else %}
+                        <a href="/users/signup/" class="btn btn-primary">Sign Up</a>
+                        <a href="/users/login" class="btn btn-primary">Login</a>
+                    {% endif %}
+                        
+                
+                </p>
+            </div>
+        </div>
+
+        {% block content %} {% endblock %}
+ 
+    </div>
+</body>
+</html>
