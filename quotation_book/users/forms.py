@@ -12,7 +12,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", 'email', "password1", "password2"]
+        fields = ["username", "email", "password1", "password2"]
 
 
 class LoginForm(AuthenticationForm):
@@ -27,4 +27,4 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['avatar']
+        fields = ["avatar"]
